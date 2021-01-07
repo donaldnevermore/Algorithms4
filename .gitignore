@@ -1,0 +1,10 @@
+# IDE
+.vscode
+.idea
+.vs
+
+# Compiled Files
+bin
+
+# History
+.history
