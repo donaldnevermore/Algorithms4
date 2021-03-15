@@ -15,13 +15,16 @@ public class Merge {
             if (i > mid) {
                 a[k] = aux[j];
                 j++;
-            } else if (j > high) {
+            }
+            else if (j > high) {
                 a[k] = aux[i];
                 i++;
-            } else if (Example.less(aux[j], aux[i])) {
+            }
+            else if (Example.less(aux[j], aux[i])) {
                 a[k] = aux[j];
                 j++;
-            } else {
+            }
+            else {
                 a[k] = aux[i];
                 i++;
             }

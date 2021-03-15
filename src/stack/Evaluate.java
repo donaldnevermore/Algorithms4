@@ -12,36 +12,46 @@ public class Evaluate {
             String s = StdIn.readString();
             if (s.equals("(")) {
                 // Skip this.
-            } else if (s.equals("+")) {
+            }
+            else if (s.equals("+")) {
                 ops.push(s);
-            } else if (s.equals("-")) {
+            }
+            else if (s.equals("-")) {
                 ops.push(s);
-            } else if (s.equals("*")) {
+            }
+            else if (s.equals("*")) {
                 ops.push(s);
             }
 
             else if (s.equals("/")) {
                 ops.push(s);
-            } else if (s.equals("sqrt")) {
+            }
+            else if (s.equals("sqrt")) {
                 ops.push(s);
-            } else if (s.equals(")")) {
+            }
+            else if (s.equals(")")) {
                 String op = ops.pop();
                 double v = vals.pop();
 
                 if (op.equals("+")) {
                     v = vals.pop() + v;
-                } else if (op.equals("-")) {
+                }
+                else if (op.equals("-")) {
                     v = vals.pop() - v;
-                } else if (op.equals("*")) {
+                }
+                else if (op.equals("*")) {
                     v = vals.pop() * v;
-                } else if (op.equals("/")) {
+                }
+                else if (op.equals("/")) {
                     v = vals.pop() / v;
-                } else if (op.equals("sqrt")) {
+                }
+                else if (op.equals("sqrt")) {
                     v = Math.sqrt(v);
                 }
 
                 vals.push(v);
-            } else {
+            }
+            else {
                 vals.push(Double.parseDouble(s));
             }
         }

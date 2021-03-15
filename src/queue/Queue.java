@@ -27,7 +27,8 @@ public class Queue<Item> implements Iterable<Item> {
         last.next = null;
         if (isEmpty()) {
             first = last;
-        } else {
+        }
+        else {
             oldLast.next = last;
         }
         n++;

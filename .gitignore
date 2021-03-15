@@ -1,10 +1,7 @@
-# IDE
-.vscode
-.idea
-.vs
+# IDEs
+.vscode/
+.idea/
+.vs/
 
 # Compiled Files
-bin
-
-# History
-.history
+bin/
