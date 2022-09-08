@@ -3,5 +3,8 @@
 .idea/
 .vs/
 
-# Compiled Files
+# Compiled
 bin/
+out/
+.gradle/
+*.iml
