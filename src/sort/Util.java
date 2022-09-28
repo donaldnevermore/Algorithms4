@@ -2,7 +2,7 @@ package sort;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class Example {
+public class Util {
     public static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }

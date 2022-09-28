@@ -15,11 +15,11 @@ public class Quick {
 
         // Fallback to insertion sort when the array is small to improve performance.
         /*
-        if (hi <= lo + M) {
-            Insertion.sort(a, lo, hi);
-            return;
-        }
-        */
+         * if (hi <= lo + M) {
+         * Insertion.sort(a, lo, hi);
+         * return;
+         * }
+         */
 
         int j = partition(a, lo, hi);
         sort(a, lo, j - 1);
@@ -32,13 +32,13 @@ public class Quick {
         Comparable v = a[lo];
 
         while (true) {
-            while (Example.less(a[++i], v)) {
+            while (Util.less(a[++i], v)) {
                 if (i == hi) {
                     break;
                 }
             }
 
-            while (Example.less(v, a[--j])) {
+            while (Util.less(v, a[--j])) {
                 if (j == lo) {
                     break;
                 }
@@ -48,10 +48,10 @@ public class Quick {
                 break;
             }
 
-            Example.exch(a, i, j);
+            Util.exch(a, i, j);
         }
 
-        Example.exch(a, lo, j);
+        Util.exch(a, lo, j);
 
         return j;
     }

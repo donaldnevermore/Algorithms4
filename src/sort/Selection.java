@@ -8,12 +8,12 @@ public class Selection {
             int min = i;
 
             for (int j = i + 1; j < n; j++) {
-                if (Example.less(a[j], a[min])) {
+                if (Util.less(a[j], a[min])) {
                     min = j;
                 }
             }
 
-            Example.exch(a, i, min);
+            Util.exch(a, i, min);
         }
     }
 }

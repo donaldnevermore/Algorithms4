@@ -10,8 +10,8 @@ public class Shell {
 
         while (h >= 1) {
             for (int i = h; i < n; i++) {
-                for (int j = i; j >= h && Example.less(a[j], a[j - h]); j -= h) {
-                    Example.exch(a, j, j - h);
+                for (int j = i; j >= h && Util.less(a[j], a[j - h]); j -= h) {
+                    Util.exch(a, j, j - h);
                 }
             }
 

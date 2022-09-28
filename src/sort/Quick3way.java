@@ -14,12 +14,10 @@ public class Quick3way {
         while (i <= gt) {
             int cmp = a[i].compareTo(v);
             if (cmp < 0) {
-                Example.exch(a, lt++, i++);
-            }
-            else if (cmp > 0) {
-                Example.exch(a, i, gt--);
-            }
-            else {
+                Util.exch(a, lt++, i++);
+            } else if (cmp > 0) {
+                Util.exch(a, i, gt--);
+            } else {
                 i++;
             }
         }
