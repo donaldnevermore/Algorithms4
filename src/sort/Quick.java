@@ -1,8 +1,11 @@
 package sort;
 
 import edu.princeton.cs.algs4.StdRandom;
+import sort.Insertion;
 
 public class Quick {
+    private static final int M = 15;
+
     public static void sort(Comparable[] a) {
         StdRandom.shuffle(a);
         sort(a, 0, a.length - 1);
@@ -14,12 +17,10 @@ public class Quick {
         }
 
         // Fallback to insertion sort when the array is small to improve performance.
-        /*
-         * if (hi <= lo + M) {
-         * Insertion.sort(a, lo, hi);
-         * return;
-         * }
-         */
+        if (hi <= lo + M) {
+            Insertion.sort(a, lo, hi);
+            return;
+        }
 
         int j = partition(a, lo, hi);
         sort(a, lo, j - 1);
