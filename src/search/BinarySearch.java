@@ -8,11 +8,9 @@ public class BinarySearch {
             int mid = lo + (hi - lo) / 2;
             if (key < a[mid]) {
                 hi = mid - 1;
-            }
-            else if (key > a[mid]) {
+            } else if (key > a[mid]) {
                 lo = mid + 1;
-            }
-            else {
+            } else {
                 return mid;
             }
         }

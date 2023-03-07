@@ -95,5 +95,5 @@ public class Questions {
         return n * ln(n - 1);
     }
 
-    // 1.1.22
+    // TODO: 1.1.22
 }
