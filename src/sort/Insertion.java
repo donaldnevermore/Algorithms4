@@ -1,7 +1,7 @@
 package sort;
 
 public class Insertion {
-    public static void sort(Comparable[] a) {
+    public static <T> void sort(Comparable<T>[] a) {
         int n = a.length;
 
         for (int i = 1; i < n; i++) {
@@ -11,7 +11,7 @@ public class Insertion {
         }
     }
 
-    public static void sort(Comparable[] a, int lo, int hi) {
+    public static <T> void sort(Comparable<T>[] a, int lo, int hi) {
         for (int i = lo; i <= hi; i++) {
             for (int j = i; j > lo && Util.less(a[j], a[j - 1]); j--) {
                 Util.exch(a, j, j - 1);

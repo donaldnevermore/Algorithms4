@@ -1,7 +1,7 @@
 package sort;
 
 public class Selection {
-    public static void sort(Comparable[] a) {
+    public static <T> void sort(Comparable<T>[] a) {
         int n = a.length;
 
         for (int i = 0; i < n; i++) {

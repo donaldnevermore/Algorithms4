@@ -1,7 +1,7 @@
 package sort;
 
 public class Shell {
-    public static void sort(Comparable[] a) {
+    public static <T> void sort(Comparable<T>[] a) {
         int n = a.length;
         int h = 1;
         while (h < n / 3) {
