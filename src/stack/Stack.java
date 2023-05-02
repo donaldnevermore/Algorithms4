@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 public class Stack<Item> implements Iterable<Item> {
     private Node first;
-    private int n;
+    private int N;
 
     private class Node {
         Item item;
@@ -17,7 +17,7 @@ public class Stack<Item> implements Iterable<Item> {
     }
 
     public int size() {
-        return n;
+        return N;
     }
 
     public void push(Item item) {
@@ -25,7 +25,7 @@ public class Stack<Item> implements Iterable<Item> {
         first = new Node();
         first.item = item;
         first.next = oldFirst;
-        n++;
+        N++;
     }
 
     public Item pop() throws NoSuchElementException {
@@ -35,7 +35,7 @@ public class Stack<Item> implements Iterable<Item> {
 
         Item item = first.item;
         first = first.next;
-        n--;
+        N--;
         return item;
     }
 

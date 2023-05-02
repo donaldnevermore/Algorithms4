@@ -1,10 +1,10 @@
 package app;
 
-import chapter1.Questions;
+import chap1.Q1;
+import chap2.Q2;
 
 public class App {
     public static void main(String[] args) {
-        var i = Questions.ln(4);
-        System.out.println(i);
+        Q2.animate();
     }
 }

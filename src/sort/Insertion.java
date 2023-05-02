@@ -1,7 +1,10 @@
 package sort;
 
+import edu.princeton.cs.algs4.StdDraw;
+
 public class Insertion {
-    public static <T> void sort(Comparable<T>[] a) {
+    // The standard one.
+    public static <T extends Comparable<T>> void sort(T[] a) {
         int n = a.length;
 
         for (int i = 1; i < n; i++) {
@@ -11,7 +14,40 @@ public class Insertion {
         }
     }
 
-    public static <T> void sort(Comparable<T>[] a, int lo, int hi) {
+    // The animated one.
+    public static <T extends Comparable<T>> void sortAnimated(T[] a) {
+        int N = a.length;
+
+        draw(a);
+        StdDraw.pause(100);
+        StdDraw.clear();
+        for (int i = 1; i < N; i++) {
+            for (int j = i; j > 0 && Util.less(a[j], a[j - 1]); j--) {
+                Util.exch(a, j, j - 1);
+                draw(a);
+                StdDraw.pause(100);
+                StdDraw.clear();
+            }
+        }
+        draw(a);
+    }
+
+    private static <T extends Comparable<T>> void draw(T[] a) {
+        int N = a.length;
+        StdDraw.setXscale(-1, N + 1);
+        StdDraw.setYscale(-1, 11);
+
+        for (int i = 0; i < N; i++) {
+            double x = 9.0 * i / N;
+            double y = (double) a[i] / 2.0;
+            double rw = 4.0 / N;
+            double rh = (double) a[i] / 2.0;
+            // if x = 9.0 * i / N and rw = 4.0 / N, there's no gap.
+            StdDraw.filledRectangle(x, y, rw, rh);
+        }
+    }
+
+    public static <T extends Comparable<T>> void sort(T[] a, int lo, int hi) {
         for (int i = lo; i <= hi; i++) {
             for (int j = i; j > lo && Util.less(a[j], a[j - 1]); j--) {
                 Util.exch(a, j, j - 1);

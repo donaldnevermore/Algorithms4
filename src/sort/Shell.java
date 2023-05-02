@@ -1,20 +1,19 @@
 package sort;
 
 public class Shell {
-    public static <T> void sort(Comparable<T>[] a) {
-        int n = a.length;
+    public static <T extends Comparable<T>> void sort(T[] a) {
+        int N = a.length;
         int h = 1;
-        while (h < n / 3) {
+        while (h < N / 3) {
             h = 3 * h + 1;
         }
 
         while (h >= 1) {
-            for (int i = h; i < n; i++) {
+            for (int i = h; i < N; i++) {
                 for (int j = i; j >= h && Util.less(a[j], a[j - h]); j -= h) {
                     Util.exch(a, j, j - h);
                 }
             }
-
             h = h / 3;
         }
     }

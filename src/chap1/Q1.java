@@ -1,8 +1,6 @@
-package chapter1;
+package chap1;
 
-import edu.princeton.cs.algs4.KMP;
-
-public class Questions {
+public class Q1 {
     // 1.1.9
     public String to(int N) {
         String s = "";

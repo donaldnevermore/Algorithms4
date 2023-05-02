@@ -1,13 +1,13 @@
 package sort;
 
 public class Selection {
-    public static <T> void sort(Comparable<T>[] a) {
-        int n = a.length;
+    public static <T extends Comparable<T>> void sort(T[] a) {
+        int N = a.length;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             int min = i;
 
-            for (int j = i + 1; j < n; j++) {
+            for (int j = i + 1; j < N; j++) {
                 if (Util.less(a[j], a[min])) {
                     min = j;
                 }

@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class Queue<Item> implements Iterable<Item> {
     private Node first;
     private Node last;
-    private int n;
+    private int N;
 
     private class Node {
         Item item;
@@ -17,7 +17,7 @@ public class Queue<Item> implements Iterable<Item> {
     }
 
     public int size() {
-        return n;
+        return N;
     }
 
     public void enqueue(Item item) {
@@ -27,11 +27,10 @@ public class Queue<Item> implements Iterable<Item> {
         last.next = null;
         if (isEmpty()) {
             first = last;
-        }
-        else {
+        } else {
             oldLast.next = last;
         }
-        n++;
+        N++;
     }
 
     public Item dequeue() {
@@ -40,7 +39,7 @@ public class Queue<Item> implements Iterable<Item> {
         if (isEmpty()) {
             last = null;
         }
-        n--;
+        N--;
         return item;
     }
 

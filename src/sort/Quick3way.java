@@ -1,7 +1,7 @@
 package sort;
 
 public class Quick3way {
-    private static <T> void sort(Comparable<T>[] a, int lo, int hi) {
+    private static <T extends Comparable<T>> void sort(T[] a, int lo, int hi) {
         if (hi <= lo) {
             return;
         }
@@ -9,10 +9,10 @@ public class Quick3way {
         int lt = lo;
         int i = lo + 1;
         int gt = hi;
-        Comparable<T> v = a[lo];
+        T v = a[lo];
 
         while (i <= gt) {
-            int cmp = a[i].compareTo((T) v);
+            int cmp = a[i].compareTo(v);
             if (cmp < 0) {
                 Util.exch(a, lt++, i++);
             } else if (cmp > 0) {

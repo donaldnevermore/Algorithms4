@@ -4,6 +4,7 @@ import queue.Queue;
 
 public class SequentialSearchST<Key, Value> {
     private Node first;
+    private int n;
 
     private class Node {
         Key key;
@@ -23,7 +24,6 @@ public class SequentialSearchST<Key, Value> {
                 return x.val;
             }
         }
-
         return null;
     }
 
@@ -34,8 +34,12 @@ public class SequentialSearchST<Key, Value> {
                 return;
             }
         }
-
         first = new Node(key, val, first);
+        n++;
+    }
+
+    public int size() {
+        return n;
     }
 
     public Iterable<Key> keys() {
@@ -44,5 +48,21 @@ public class SequentialSearchST<Key, Value> {
             queue.enqueue(x.key);
         }
         return queue;
+    }
+
+    public void delete(Key key) {
+        first = delete(first, key);
+    }
+
+    private Node delete(Node x, Key key) {
+        if (x == null) {
+            return null;
+        }
+        if (key.equals(x.key)) {
+            n--;
+            return x.next;
+        }
+        x.next = delete(x.next, key);
+        return x;
     }
 }

@@ -6,12 +6,12 @@ import sort.Insertion;
 public class Quick {
     private static final int M = 15;
 
-    public static <T> void sort(Comparable<T>[] a) {
+    public static <T extends Comparable<T>> void sort(T[] a) {
         StdRandom.shuffle(a);
         sort(a, 0, a.length - 1);
     }
 
-    private static <T> void sort(Comparable<T>[] a, int lo, int hi) {
+    private static <T extends Comparable<T>> void sort(T[] a, int lo, int hi) {
         if (hi <= lo) {
             return;
         }
@@ -27,10 +27,10 @@ public class Quick {
         sort(a, j + 1, hi);
     }
 
-    private static <T> int partition(Comparable<T>[] a, int lo, int hi) {
+    private static <T extends Comparable<T>> int partition(T[] a, int lo, int hi) {
         int i = lo;
         int j = hi + 1;
-        Comparable<T> v = a[lo];
+        T v = a[lo];
 
         while (true) {
             while (Util.less(a[++i], v)) {
