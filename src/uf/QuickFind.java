@@ -5,10 +5,12 @@ public class QuickFind extends UF {
         super(N);
     }
 
+    @Override
     public int find(int p) {
         return id[p];
     }
 
+    @Override
     public void union(int p, int q) {
         int pID = find(p);
         int qID = find(q);

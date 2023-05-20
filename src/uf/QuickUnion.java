@@ -5,6 +5,7 @@ public class QuickUnion extends UF {
         super(N);
     }
 
+    @Override
     public int find(int p) {
         while (p != id[p]) {
             p = id[p];
@@ -13,6 +14,7 @@ public class QuickUnion extends UF {
         return p;
     }
 
+    @Override
     public void union(int p, int q) {
         int pRoot = find(p);
         int qRoot = find(q);

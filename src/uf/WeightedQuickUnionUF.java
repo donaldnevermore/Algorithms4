@@ -12,6 +12,7 @@ public class WeightedQuickUnionUF extends UF {
         }
     }
 
+    @Override
     public int find(int p) {
         while (p != id[p]) {
             p = id[p];
@@ -19,6 +20,7 @@ public class WeightedQuickUnionUF extends UF {
         return p;
     }
 
+    @Override
     public void union(int p, int q) {
         int i = find(p);
         int j = find(q);
