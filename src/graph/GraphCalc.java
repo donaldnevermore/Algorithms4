@@ -1,6 +1,12 @@
 package graph;
 
+import bag.Bag;
+
 public class GraphCalc {
+    private int V; // the number of vertices
+    private int E; // the number of edges
+    private Bag<Integer>[] adj;
+
     public static int degree(Graph G, int v) {
         int degree = 0;
         for (int w : G.adj(v)) {
@@ -32,20 +38,22 @@ public class GraphCalc {
                 }
             }
         }
-        return count / 2;
+        return count / 2; // each edge is counted twice
     }
 
-    /*
-     * public String toString() {
-     * String s = V + " vertices, " + E + " edges\n";
-     * for (int v = 0; v < V; v++) {
-     * s += v + ": ";
-     * for (int w : this.adj(v)) {
-     * s += w + " ";
-     * }
-     * s += "\n";
-     * }
-     * return s;
-     * }
-     */
+    public String toString() {
+        String s = V + " vertices, " + E + " edges\n";
+        for (int v = 0; v < V; v++) {
+            s += v + ": ";
+            for (int w : this.adj(v)) {
+                s += w + " ";
+            }
+            s += "\n";
+        }
+        return s;
+    }
+
+    public Iterable<Integer> adj(int v) {
+        return adj[v];
+    }
 }
