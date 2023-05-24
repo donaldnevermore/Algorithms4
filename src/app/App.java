@@ -1,9 +1,9 @@
 package app;
 
-import string.KMP;
+import string.BoyerMoore;
 
 public class App {
     public static void main(String[] args) {
-        KMP.run(new String[] { "abcbaa", "baasdsfabcbaakslfk" });
+        BoyerMoore.run(new String[] { "abcbaa", "baasdsfabcbaakslfk" });
     }
 }
