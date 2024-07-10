@@ -1,5 +1,7 @@
 package sort;
 
+import static sort.Util.less;
+
 public class Merge {
     private static Comparable[] aux;
 
@@ -18,7 +20,7 @@ public class Merge {
             } else if (j > hi) {
                 // Run out of the right array, take the left.
                 a[k] = aux[i++];
-            } else if (Util.less(aux[j], aux[i])) {
+            } else if (less(aux[j], aux[i])) {
                 a[k] = aux[j++];
             } else {
                 a[k] = aux[i++];
@@ -42,6 +44,7 @@ public class Merge {
         }
     }
 
+    // top-down
     private static void sort(Comparable[] a, int lo, int hi) {
         if (hi <= lo) {
             return;

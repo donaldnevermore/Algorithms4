@@ -19,7 +19,8 @@ public class FileSystemClassLoader extends ClassLoader {
         if (classData == null) {
             throw new ClassNotFoundException();
         } else {
-            return defineClass(name, classData, 0, classData.length);
+            // return defineClass(name, classData, 0, classData.length);
+            return null;
         }
     }
 

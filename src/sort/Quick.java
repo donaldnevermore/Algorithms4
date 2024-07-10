@@ -1,7 +1,8 @@
 package sort;
 
 import edu.princeton.cs.algs4.StdRandom;
-import sort.Insertion;
+import static sort.Util.exch;
+import static sort.Util.less;
 
 public class Quick {
     private static final int M = 15;
@@ -15,12 +16,12 @@ public class Quick {
         if (hi <= lo) {
             return;
         }
-
+        // Replace the statements above.
         // Fallback to insertion sort when the array is small to improve performance.
-        if (hi <= lo + M) {
-            Insertion.sort(a, lo, hi);
-            return;
-        }
+        // if (hi <= lo + M) {
+        // Insertion.sort(a, lo, hi);
+        // return;
+        // }
 
         int j = partition(a, lo, hi);
         sort(a, lo, j - 1);
@@ -33,27 +34,24 @@ public class Quick {
         T v = a[lo];
 
         while (true) {
-            while (Util.less(a[++i], v)) {
+            while (less(a[++i], v)) {
                 if (i == hi) {
                     break;
                 }
             }
-
-            while (Util.less(v, a[--j])) {
+            while (less(v, a[--j])) {
                 if (j == lo) {
                     break;
                 }
             }
-
             if (i >= j) {
                 break;
             }
 
-            Util.exch(a, i, j);
+            exch(a, i, j);
         }
 
-        Util.exch(a, lo, j);
-
+        exch(a, lo, j);
         return j;
     }
 }
