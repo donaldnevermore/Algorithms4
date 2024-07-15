@@ -29,8 +29,7 @@ public class Quick {
     }
 
     private static <T extends Comparable<T>> int partition(T[] a, int lo, int hi) {
-        int i = lo;
-        int j = hi + 1;
+        int i = lo, j = hi + 1;
         T v = a[lo];
 
         while (true) {
@@ -47,7 +46,6 @@ public class Quick {
             if (i >= j) {
                 break;
             }
-
             exch(a, i, j);
         }
 

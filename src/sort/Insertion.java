@@ -66,6 +66,13 @@ public class Insertion {
     }
 
     private static boolean strless(String v, String w, int d) {
-        return v.substring(d).compareTo(w.substring(d)) < 0;
+        // assert v.substring(0, d).equals(w.substring(0, d));
+        for (int i = d; i < Math.min(v.length(), w.length()); i++) {
+            if (v.charAt(i) < w.charAt(i))
+                return true;
+            if (v.charAt(i) > w.charAt(i))
+                return false;
+        }
+        return v.length() < w.length();
     }
 }

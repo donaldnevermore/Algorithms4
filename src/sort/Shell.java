@@ -1,5 +1,8 @@
 package sort;
 
+import static sort.Util.less;
+import static sort.Util.exch;
+
 public class Shell {
     public static <T extends Comparable<T>> void sort(T[] a) {
         int N = a.length;
@@ -10,8 +13,8 @@ public class Shell {
 
         while (h >= 1) {
             for (int i = h; i < N; i++) {
-                for (int j = i; j >= h && Util.less(a[j], a[j - h]); j -= h) {
-                    Util.exch(a, j, j - h);
+                for (int j = i; j >= h && less(a[j], a[j - h]); j -= h) {
+                    exch(a, j, j - h);
                 }
             }
             h = h / 3;
