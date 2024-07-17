@@ -240,18 +240,18 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
+    // BFS
     public Iterable<Key> levelOrder() {
         Queue<Key> keys = new Queue<Key>();
         Queue<Node> queue = new Queue<Node>();
         queue.enqueue(root);
         while (!queue.isEmpty()) {
             Node x = queue.dequeue();
-            if (x == null) {
-                continue;
+            if (x != null) {
+                keys.enqueue(x.key);
+                queue.enqueue(x.left);
+                queue.enqueue(x.right);
             }
-            keys.enqueue(x.key);
-            queue.enqueue(x.left);
-            queue.enqueue(x.right);
         }
         return keys;
     }
