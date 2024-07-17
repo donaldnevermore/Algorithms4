@@ -18,6 +18,7 @@ public class BreadthFirstPaths {
     private void bfs(Graph G, int s) {
         var queue = new Queue<Integer>();
         marked[s] = true;
+        queue.enqueue(s);
         while (!queue.isEmpty()) {
             int v = queue.dequeue();
             for (int w : G.adj(v)) {

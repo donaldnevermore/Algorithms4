@@ -1,5 +1,6 @@
 package string;
 
+// Brute force
 public class BF {
     public static int search(String pat, String txt) {
         int M = pat.length();
@@ -15,12 +16,13 @@ public class BF {
                 return i;
             }
         }
-        return N;
+        return N; // Not found
     }
 
     public static int search2(String pat, String txt) {
-        int j, M = pat.length();
-        int i, N = txt.length();
+        int M = pat.length();
+        int N = txt.length();
+        int i, j;
         for (i = 0, j = 0; i < N && j < M; i++) {
             if (txt.charAt(i) == pat.charAt(j)) {
                 j++;
