@@ -1,5 +1,8 @@
 package st;
 
+import java.util.NoSuchElementException;
+import edu.princeton.cs.algs4.Queue;
+
 public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
     private static final boolean RED = true;
@@ -247,7 +250,15 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return balance(h);
     }
 
+    /**
+     * Returns the smallest key in the symbol table.
+     *
+     * @return the smallest key in the symbol table
+     * @throws NoSuchElementException if the symbol table is empty
+     */
     public Key min() {
+        if (isEmpty())
+            throw new NoSuchElementException("calls min() with empty symbol table");
         return min(root).key;
     }
 
@@ -258,5 +269,78 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
             return x;
         else
             return min(x.left);
+    }
+
+    /**
+     * Returns the largest key in the symbol table.
+     *
+     * @return the largest key in the symbol table
+     * @throws NoSuchElementException if the symbol table is empty
+     */
+    public Key max() {
+        if (isEmpty())
+            throw new NoSuchElementException("calls max() with empty symbol table");
+        return max(root).key;
+    }
+
+    // the largest key in the subtree rooted at x; null if no such key
+    private Node max(Node x) {
+        // assert x != null;
+        if (x.right == null)
+            return x;
+        else
+            return max(x.right);
+    }
+
+    /**
+     * Returns all keys in the symbol table in ascending order as an
+     * {@code Iterable}.
+     * To iterate over all of the keys in the symbol table named {@code st},
+     * use the foreach notation: {@code for (Key key : st.keys())}.
+     *
+     * @return all keys in the symbol table in ascending order
+     */
+    public Iterable<Key> keys() {
+        if (isEmpty())
+            return new Queue<Key>();
+        return keys(min(), max());
+    }
+
+    /**
+     * Returns all keys in the symbol table in the given range in ascending order,
+     * as an {@code Iterable}.
+     *
+     * @param lo minimum endpoint
+     * @param hi maximum endpoint
+     * @return all keys in the symbol table between {@code lo}
+     *         (inclusive) and {@code hi} (inclusive) in ascending order
+     * @throws IllegalArgumentException if either {@code lo} or {@code hi}
+     *                                  is {@code null}
+     */
+    public Iterable<Key> keys(Key lo, Key hi) {
+        if (lo == null)
+            throw new IllegalArgumentException("first argument to keys() is null");
+        if (hi == null)
+            throw new IllegalArgumentException("second argument to keys() is null");
+
+        Queue<Key> queue = new Queue<Key>();
+        // if (isEmpty() || lo.compareTo(hi) > 0) return queue;
+        keys(root, queue, lo, hi);
+        return queue;
+    }
+
+    // add the keys between lo and hi in the subtree rooted at x
+    // to the queue
+    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+        if (x == null)
+            return;
+        int cmplo = lo.compareTo(x.key);
+        int cmphi = hi.compareTo(x.key);
+        if (cmplo < 0)
+            keys(x.left, queue, lo, hi);
+        if (cmplo <= 0 && cmphi >= 0)
+            queue.enqueue(x.key);
+        if (cmphi > 0)
+            keys(x.right, queue, lo, hi);
     }
 }
