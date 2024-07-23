@@ -10,6 +10,7 @@ public class BoyerMoore {
         this.pat = pat;
         int M = pat.length();
         int R = 256;
+
         right = new int[R];
         for (int c = 0; c < R; c++) {
             right[c] = -1;
@@ -22,6 +23,7 @@ public class BoyerMoore {
     public int search(String txt) {
         int N = txt.length();
         int M = pat.length();
+        
         int skip;
         for (int i = 0; i <= N - M; i += skip) {
             skip = 0;
