@@ -23,6 +23,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
+
+    runtimeOnly(files("src/main/resources/lib/algs4.jar"))
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
