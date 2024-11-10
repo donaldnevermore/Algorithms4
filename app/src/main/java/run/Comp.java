@@ -1,4 +1,4 @@
-package app;
+package run;
 
 public class Comp implements Comparable<Comp> {
     private int value;

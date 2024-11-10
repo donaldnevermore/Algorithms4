@@ -1,15 +1,16 @@
-package app;
+package run;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
+
 import sort.Insertion;
 
-public class App {
-    public static void main(String[] args) {
-        Integer[] x = { 3, 2, 1 };
+public class Run {
+    public static void main1(String[] args) {
+        Integer[] x = {3, 2, 1};
         Insertion.sort(x);
         System.out.println("hello");
     }
