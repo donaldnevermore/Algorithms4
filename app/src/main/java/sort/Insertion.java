@@ -41,9 +41,9 @@ public class Insertion {
 
         for (int i = 0; i < N; i++) {
             double x = 9.0 * i / N;
-            double y = (double) a[i] / 2.0;
+            double y = (Double) a[i] / 2.0;
             double rw = 4.0 / N;
-            double rh = (double) a[i] / 2.0;
+            double rh = (Double) a[i] / 2.0;
             // if x = 9.0 * i / N and rw = 4.0 / N, there's no gap.
             StdDraw.filledRectangle(x, y, rw, rh);
         }
